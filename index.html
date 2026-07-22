@@ -7,15 +7,21 @@
     <style>
         body {
             text-align: center;
-            background-color: #f0f8ff; /* สีฟ้าอ่อนสบายตา */
+            background-color: #f0f8ff;
             font-family: 'Verdana', sans-serif;
             padding-top: 20px;
             padding-bottom: 50px;
+            margin: 0;
         }
 
-        /* --- ส่วนเมนูสลับหน้า --- */
+        /* --- ส่วนเมนูสลับหน้า (nav) --- */
         .nav-container {
             margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            background-color: rgba(240, 248, 255, 0.95);
+            padding: 10px 0;
+            z-index: 1000;
         }
 
         .nav-btn {
@@ -43,12 +49,11 @@
             padding: 20px;
         }
 
-        /* ให้หน้าแรกแสดงเป็นค่าเริ่มต้น */
         #page1 {
             display: block;
         }
 
-        /* --- สไตล์ดั้งเดิม --- */
+        /* --- สไตล์เนื้อหา --- */
         .main-header {
             background-color: powderblue; 
             color: blue;
@@ -56,7 +61,7 @@
             display: inline-block;
             border-radius: 10px;
             font-family: Verdana;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .sub-header {
@@ -79,13 +84,12 @@
             width: 230px;
             height: 230px;
             object-fit: cover;
-            border-radius: 50%; /* ทำรูปเป็นวงกลม */
+            border-radius: 50%;
             border: 5px solid white;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             margin: 10px;
         }
 
-        /* ปุ่มลิงค์ภายในหน้า */
         .action-btn {
             background-color: #2c3e50;
             color: white;
@@ -98,11 +102,11 @@
             margin: 5px;
             transition: 0.2s;
         }
+
         .action-btn:hover {
             background-color: blue;
         }
 
-        /* --- สไตล์เพิ่มเติมสำหรับ หน้า 2 และ หน้า 3 --- */
         .list-container {
             background: white;
             padding: 25px;
@@ -123,7 +127,6 @@
             margin-bottom: 10px;
         }
 
-        /* ตารางของหน้า 3 */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -151,7 +154,6 @@
             background-color: #f9f9f9;
         }
 
-        /* สไตล์สำหรับกล่องเครื่องเล่นวิดีโอ */
         .video-container {
             margin-top: 30px;
             background: #fff;
@@ -160,41 +162,85 @@
             display: inline-block;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
+
         .video-title {
             font-size: 16px;
             color: #2c3e50;
             margin-bottom: 10px;
             font-weight: bold;
         }
+
         video {
             border-radius: 6px;
             background-color: #000;
+        }
+
+        aside {
+            background: #eef2f7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        details {
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+            cursor: pointer;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        summary {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
-    <div id="page1" class="page">
-        <h1 class="main-header">แนะนำตัวเอง</h1>
+    <nav class="nav-container">
+        <button class="nav-btn" onclick="switchPage('page1')">หน้าแรก (ประวัติ)</button>
+        <button class="nav-btn" onclick="switchPage('page2')">ทักษะ & อาชีพ</button>
+        <button class="nav-btn" onclick="switchPage('page3')">ตารางซ้อมบอล</button>
+    </nav>
+
+    <section id="page1" class="page">
+        <header>
+            <h1 class="main-header">แนะนำตัวเอง</h1>
+        </header>
         
         <div style="margin-top: 20px;">
-    <div style="margin-top: 20px;">
-    <img src="https://img1.pic.in.th/images/TTang.jpg" alt="Thanat Matkhaw" class="profile-img">
-</div>
+            <img src="https://img1.pic.in.th/images/Tang.md.jpg" alt="Thanat Matkhaw" class="profile-img">
+        </div>
 
-        <h2 style="color: #2c3e50; margin-top: 30px;">My name is Thanat Matkhaw</h2>
+        <h2 style="color: #2c3e50; margin-top: 20px;">My name is Thanat Matkhaw</h2>
         
-        <div class="sub-header">Day / Month / Year</div>
-        <p>09/06/2552</p>
+        <article>
+            <div class="sub-header">Day / Month / Year</div>
+            <p>09/06/2552</p>
 
-        <div class="sub-header">Age</div>
-        <p>17 Years Old</p>
+            <div class="sub-header">Age</div>
+            <p>17 Years Old</p>
 
-        <div class="sub-header">Education</div>
-        <p>วิทยาลัยเทคนิคเชียงใหม่</p>
+            <div class="sub-header">Education</div>
+            <p>วิทยาลัยเทคนิคเชียงใหม่</p>
 
-        <div class="sub-header">What I like</div>
-        <p>ฟุตบอล</p>
+            <div class="sub-header">What I like</div>
+            <p>ฟุตบอล</p>
+        </article>
 
         <div class="video-container">
             <div class="video-title">🎥 วิดีโอแนะนำ/ไฮไลท์การซ้อมบอล</div>
@@ -204,99 +250,123 @@
             </video>
         </div>
 
+        <aside>
+            <p>📌 คติประจำใจ: "ซ้อมให้หนักกว่าที่คิด แล้วผลลัพธ์จะพูดแทนเรา"</p>
+        </aside>
+
+        <details>
+            <summary>คลิกเพื่อดูข้อมูลการติดต่อเพิ่มเติม</summary>
+            <p style="font-size: 16px; margin-top: 10px;">Email: thanat@example.com<br>Facebook: Thanat Matkhaw</p>
+        </details>
+
         <div style="margin-top: 40px; border-top: 1px dashed #ccc; padding-top: 20px;">
             <button class="action-btn" onclick="switchPage('page2')">ไปหน้า 2</button>
             <button class="action-btn" onclick="switchPage('page3')">ไปหน้า 3</button>
         </div>
-    </div>
+    </section>
 
-    <div id="page2" class="page">
-        <h1 class="main-header">Skills & Careers</h1>
+    <section id="page2" class="page">
+        <header>
+            <h1 class="main-header">Skills & Careers</h1>
+        </header>
         <br>
 
-        <div class="sub-header">รายการทักษะด้านร่างกายที่ต้องการพัฒนา</div>
-        <div class="list-container">
-            <ul>
-                <li>ความอึดและความทนทานของระบบคาร์ดิโอ (Cardiovascular Endurance) เพื่อให้วิ่งได้เต็มที่ตลอด 90 นาที</li>
-                <li>ความเร็วและการเร่งสปีดระยะสั้น (Speed & Acceleration) ในการกระชากบอลหนีกองหลัง</li>
-                <li>ความคล่องตัวและการทรงตัว (Agility & Balance) เพื่อการเปลี่ยนทิศทางหลบหลีกคู่ต่อสู้อย่างรวดเร็ว</li>
-                <li>ความแข็งแกร่งของกล้ามเนื้อส่วนแกนกลาง (Core Strength) สำหรับการปะทะและเบียดบังบอล</li>
-            </ul>
-        </div>
+        <article>
+            <div class="sub-header">รายการทักษะด้านร่างกายที่ต้องการพัฒนา</div>
+            <div class="list-container">
+                <ul>
+                    <li>ความอึดและความทนทานของระบบคาร์ดิโอ (Cardiovascular Endurance) เพื่อให้วิ่งได้เต็มที่ตลอด 90 นาที</li>
+                    <li>ความเร็วและการเร่งสปีดระยะสั้น (Speed & Acceleration) ในการกระชากบอลหนีกองหลัง</li>
+                    <li>ความคล่องตัวและการทรงตัว (Agility & Balance) เพื่อการเปลี่ยนทิศทางหลบหลีกคู่ต่อสู้อย่างรวดเร็ว</li>
+                    <li>ความแข็งแกร่งของกล้ามเนื้อส่วนแกนกลาง (Core Strength) สำหรับการปะทะและเบียดบังบอล</li>
+                </ul>
+            </div>
 
-        <div class="sub-header">ลำดับอาชีพที่อยากทำ</div>
-        <div class="list-container">
-            <ol>
-                <li>Professional Footballer (นักฟุตบอลอาชีพ)</li>
-                <li>Football Coach / Trainer (โค้ชผู้ฝึกสอนฟุตบอล)</li>
-                <li>Sports Scientist (นักวิทยาศาสตร์การกีฬา)</li>
-            </ol>
-        </div>
+            <div class="sub-header">ลำดับอาชีพที่อยากทำ</div>
+            <div class="list-container">
+                <ol>
+                    <li>Professional Footballer (นักฟุตบอลอาชีพ)</li>
+                    <li>Football Coach / Trainer (โค้ชผู้ฝึกสอนฟุตบอล)</li>
+                    <li>Sports Scientist (นักวิทยาศาสตร์การกีฬา)</li>
+                </ol>
+            </div>
+        </article>
 
         <div style="margin-top: 40px; border-top: 1px dashed #ccc; padding-top: 20px;">
             <button class="action-btn" onclick="switchPage('page1')">กลับไปหน้าแรก</button>
             <button class="action-btn" onclick="switchPage('page3')">ไปหน้า 3</button>
         </div>
-    </div>
+    </section>
 
-    <div id="page3" class="page">
-        <h1 class="main-header">Football Training Schedule</h1>
+    <section id="page3" class="page">
+        <header>
+            <h1 class="main-header">Football Training Schedule</h1>
+        </header>
         <br>
         
-        <div class="sub-header">ตารางซ้อมฟุตบอลประจำสัปดาห์</div>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>วัน / เวลา</th>
-                    <th>โปรแกรมการฝึกซ้อมฟุตบอล</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>วันจันทร์</strong><br>16:30 - 18:30 น.</td>
-                    <td>Cardio & Fitness: วิ่งเรียกแรง, ยืดกล้ามเนื้อ และสร้างความฟิต (Physical Training)</td>
-                </tr>
-                <tr>
-                    <td><strong>วันอังคาร</strong><br>16:30 - 18:30 น.</td>
-                    <td>Ball Control: ฝึกการจับบอล, แปบอลสั้น-ยาว และการเลี้ยงบอลหลบสิ่งกีดขวาง</td>
-                </tr>
-                <tr>
-                    <td><strong>วันพุธ</strong><br>16:30 - 18:30 น.</td>
-                    <td>Tactics & Positioning: ซ้อมเกมรุก-เกมรับ การยืนตำแหน่ง และการส่งบอลทำประตู</td>
-                </tr>
-                <tr>
-                    <td><strong>วันพฤหัสบดี</strong><br>16:30 - 18:30 น.</td>
-                    <td>Set Pieces: ซ้อมยิงลูกจุดโทษ, ลูกฟรีคิก และการเปิดลูกเตะมุม</td>
-                </tr>
-                <tr>
-                    <td><strong>วันศุกร์</strong><br>16:30 - 19:00 น.</td>
-                    <td>Match Day: แบ่งทีมลงสนามซ้อมใหญ่ (Scrimmage) เพื่อทดสอบระบบทีม</td>
-                </tr>
-                <tr>
-                    <td><strong>วันเสาร์ - อาทิตย์</strong></td>
-                    <td>Rest & Recovery: พักผ่อนร่างกาย หรือออกไปดูแมตช์การแข่งขันเพื่อศึกษาแผนเกม</td>
-                </tr>
-            </tbody>
-        </table>
+        <article>
+            <div class="sub-header">ตารางซ้อมฟุตบอลประจำสัปดาห์</div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>วัน / เวลา</th>
+                        <th>โปรแกรมการฝึกซ้อมฟุตบอล</th>
+                        <th>สภาพอากาศช่วงซ้อม (Weather / Heat Index)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>วันจันทร์</strong><br>16:30 - 18:30 น.</td>
+                        <td>Cardio & Fitness: วิ่งเรียกแรง, ยืดกล้ามเนื้อ และสร้างความฟิต (Physical Training)</td>
+                        <td>☀️ แดดจัด / อุณหภูมิ 32°C<br><small>(ควรจิบน้ำบ่อยๆ ป้องกันภาวะลมแดด)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>วันอังคาร</strong><br>16:30 - 18:30 น.</td>
+                        <td>Ball Control: ฝึกการจับบอล, แปบอลสั้น-ยาว และการเลี้ยงบอลหลบสิ่งกีดขวาง</td>
+                        <td>⛅ มีเมฆบางส่วน / อุณหภูมิ 30°C<br><small>(อากาศกำลังดี เหมาะแก่การซ้อมทักษะ)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>วันพุธ</strong><br>16:30 - 18:30 น.</td>
+                        <td>Tactics & Positioning: ซ้อมเกมรุก-เกมรับ การยืนตำแหน่ง และการส่งบอลทำประตู</td>
+                        <td>🌤️ แดดอ่อนๆ / อุณหภูมิ 29°C<br><small>(ลมพัดเย็นสบาย ซ้อมแผนทีมได้เต็มที่)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>วันพฤหัสบดี</strong><br>16:30 - 18:30 น.</td>
+                        <td>Set Pieces: ซ้อมยิงลูกจุดโทษ, ลูกฟรีคิก และการเปิดลูกเตะมุม</td>
+                        <td>🌧️ ฝนตกโปรยปราย / อุณหภูมิ 26°C<br><small>(ซ้อมคุมบอลบนสนามเปียกแฉะ)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>วันศุกร์</strong><br>16:30 - 19:00 น.</td>
+                        <td>Match Day: แบ่งทีมลงสนามซ้อมใหญ่ (Scrimmage) เพื่อทดสอบระบบทีม</td>
+                        <td>🌥️ ครึ้มฟ้าครึ้มฝน / อุณหภูมิ 28°C<br><small>(อากาศโปร่ง เหมาะสำหรับลงแมตช์จำลอง)</small></td>
+                    </tr>
+                    <tr>
+                        <td><strong>วันเสาร์ - อาทิตย์</strong></td>
+                        <td>Rest & Recovery: พักผ่อนร่างกาย หรือออกไปดูแมตช์การแข่งขันเพื่อศึกษาแผนเกม</td>
+                        <td>🏠 พักผ่อนในที่ร่ม / ยืดเหยียดกล้ามเนื้อ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
 
         <div style="margin-top: 40px; border-top: 1px dashed #ccc; padding-top: 20px;">
             <button class="action-btn" onclick="switchPage('page1')">กลับไปหน้าแรก</button>
             <button class="action-btn" onclick="switchPage('page2')">กลับไปหน้า 2</button>
         </div>
-    </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Thanat Matkhaw - All Rights Reserved</p>
+    </footer>
 
     <script>
         function switchPage(pageId) {
-            // ซ่อนทุกหน้าก่อน
             var pages = document.getElementsByClassName('page');
             for (var i = 0; i < pages.length; i++) {
                 pages[i].style.display = 'none';
             }
-            // แสดงผลเฉพาะหน้าเว็บที่ถูกกดเลือก
             document.getElementById(pageId).style.display = 'block';
-            
-            // เลื่อนหน้าจอกลับไปด้านบนสุดเวลาเปลี่ยนหน้า
             window.scrollTo(0, 0);
         }
     </script>
